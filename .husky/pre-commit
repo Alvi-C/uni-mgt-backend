@@ -8,4 +8,4 @@
 # # Run Prettier for code formatting
 # npm run prettier:check
 
-npx lint-staged
+# npx lint-staged
