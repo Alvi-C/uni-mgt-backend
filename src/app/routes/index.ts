@@ -1,4 +1,6 @@
 import express, { Request, Response } from 'express';
+import studentRouter from '../modules/student/student.routes';
+import userRouter from '../modules/user/user.routes';
 
 const router = express.Router();
 
@@ -8,5 +10,9 @@ router.get('/', (req: Request, res: Response) => {
     message: 'Test route is working!',
   });
 });
+
+// student route
+router.use('/api/v1/student', studentRouter);
+router.use('/api/v1/users', userRouter);
 
 export default router;
