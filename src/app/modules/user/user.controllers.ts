@@ -20,13 +20,6 @@ const createStudent = async (
     // call service function to create a new student
     const result = await UserServices.createStudentIntoDB(password, newStudent);
     // send response
-    // res.status(201).json({
-    //   status: 'success',
-    //   message: 'Student created successfully',
-    //   data: {
-    //     student: result,
-    //   },
-    // });
     sendResponse(res, {
       statusCode: httpStatus.CREATED,
       success: true,
@@ -37,12 +30,6 @@ const createStudent = async (
     });
   } catch (error) {
     const typedError = error as Error;
-    // console.log(typedError.message);
-    // res.status(500).json({
-    //   status: typedError.name || 'fail',
-    //   message: typedError.message || 'Student creation failed',
-    //   error: typedError,
-    // });
     next(typedError);
   }
 };

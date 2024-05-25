@@ -52,13 +52,6 @@ const getSingleStudent = async (
     // call service function to get a single student
     const result = await StudentService.getSingleStudentsFromDB(studentId);
     // send response
-    // res.status(200).json({
-    //   status: 'success',
-    //   message: 'Student fetched successfully',
-    //   data: {
-    //     student: result,
-    //   },
-    // });
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -69,12 +62,6 @@ const getSingleStudent = async (
     });
   } catch (error) {
     const typedError = error as Error;
-    // console.log(typedError.message);
-    // res.status(400).json({
-    //   status: typedError.name || 'fail',
-    //   message: typedError.message || 'Fetching student failed',
-    //   error: typedError,
-    // });
     next(typedError);
   }
 };
@@ -88,11 +75,7 @@ const deleteStudent = async (
     const studentId = req.params.id;
     const result = await StudentService.deleteStudentFromDB(studentId);
 
-    // res.status(200).json({
-    //   status: 'success',
-    //   message: 'Student deleted successfully!',
-    //   data: null,
-    // });
+    // send response
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
