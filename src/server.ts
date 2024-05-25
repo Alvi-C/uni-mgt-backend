@@ -8,7 +8,7 @@ const databaseUrl = process.env.DATABASE_URL;
 async function server(): Promise<void> {
   try {
     await mongoose.connect(databaseUrl as string);
-    console.log('🌼 Database connected 🌼');
+    console.log('🌼🌼 Database connected 🌼🌼');
 
     app.listen(port, () => {
       console.log(`🔥🔥 Server is running on port ${port} 🔥🔥`);
