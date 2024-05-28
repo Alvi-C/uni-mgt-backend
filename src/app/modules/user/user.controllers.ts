@@ -9,9 +9,6 @@ const createStudent = catchAsync(async (req, res, next) => {
   const newStudent = req.body.student;
   const password = req.body.password;
 
-  // data validation using zod
-  // const zodParsedData = studentValidationSchema.parse(newStudent);
-
   // call service function to create a new student
   const result = await UserServices.createStudentIntoDB(password, newStudent);
   // send response
