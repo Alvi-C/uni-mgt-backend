@@ -9,15 +9,7 @@
     "lint:check": "eslint 'src/**/*.ts' --no-cache",
     "lint:fix": "eslint 'src/**/*.ts' --fix",
     "prettier:check": "prettier --write 'src/**/*.{ts,json}'",
-    "test": "npm run lint:check && npm run prettier:fix",
-    "prepare": "husky"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,json}": [
-      "npm run prettier:check",
-      "npm run lint:fix",
-      "eslint --max-warnings 0 ."
-    ]
+    "test": "npm run lint:check && npm run prettier:fix"
   },
   "keywords": [],
   "author": "",
