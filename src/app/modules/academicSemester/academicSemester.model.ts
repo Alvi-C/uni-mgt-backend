@@ -14,7 +14,7 @@ const academicSemesterSchema = new Schema<TAcademicSemester>(
       enum: academicSemesterName,
     },
     year: {
-      type: Date,
+      type: String,
       required: true,
     },
     code: {
@@ -37,6 +37,19 @@ const academicSemesterSchema = new Schema<TAcademicSemester>(
     timestamps: true,
   },
 );
+
+// pre hook to avoid duplication of semester year and semester name in same year
+academicSemesterSchema.pre('save', async function (next) {
+  const isSemesterExist = await AcademicSemesterModel.findOne({
+    name: this.name,
+    year: this.year,
+  });
+
+  if (isSemesterExist) {
+    throw new Error('Academic semester already exist');
+  }
+  next();
+});
 
 export const AcademicSemesterModel = model<TAcademicSemester>(
   'AcademicSemester',
