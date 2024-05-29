@@ -79,6 +79,9 @@ const createStudentValidationSchema = z.object({
       guardian: guardianValidationSchema,
       localGuardian: localGuardianValidationSchema,
       profileImage: z.string().optional(),
+      admissionSemester: z
+        .string()
+        .min(1, { message: 'Admission semester is required' }),
     }),
   }),
 });
